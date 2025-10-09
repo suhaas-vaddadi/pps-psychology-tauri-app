@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import PressKeyPrompt from "../components/PressKeyPrompt";
 import Instructions from "../dyad-task/Instructions";
@@ -34,6 +34,7 @@ function ClassificationTaskMain({
   csvFilePath,
   onComplete,
 }: ClassificationTaskMainProps) {
+  const trail_number = useRef<number>(1);
   const csvEscape = (value: unknown) => {
     const s = value !== undefined && value !== null ? String(value) : "";
     if (
@@ -74,6 +75,7 @@ function ClassificationTaskMain({
       emotion2,
       ratingPerson,
       response,
+      trail_number.current,
       "1.0.0",
     ]
       .map(csvEscape)
@@ -83,6 +85,7 @@ function ClassificationTaskMain({
       path: csvFilePath,
       contents: [row],
     });
+    trail_number.current = trail_number.current + 1;
   };
 
   const [currentStep, setCurrentStep] = useState<string>("instructions");

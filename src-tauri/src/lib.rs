@@ -41,7 +41,7 @@ fn write_csv_transitions(path: String, contents: Vec<String>) -> Result<(), Stri
         .map_err(|e| e.to_string())?;
 
         if !file_exists {
-            writeln!(file, "dyadId,participantId,partnerId,computer,subjectInitials,saveFolder,raName,sessionTime,sessionDate,sessionTimestamp,rating_task,sub_task,emotion1,emotion2,rating_person,response,softwareVersion")
+            writeln!(file, "dyadId,participantId,partnerId,computer,subjectInitials,saveFolder,raName,sessionTime,sessionDate,sessionTimestamp,ratingTask,subTask,emotion1,emotion2,ratingPerson,response,trialNumber,softwareVersion")
                 .map_err(|e| e.to_string())?;
         }
     
