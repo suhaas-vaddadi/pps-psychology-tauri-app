@@ -53,7 +53,7 @@ export default function SelfFrequency({ onContinue }: ClassifcationTaskProps) {
 
   const handleContinue = () => {
     if (isFormValid()) {
-      onContinue?.(sliderSelections);
+      onContinue?.({ ratings: sliderSelections, order: shuffledEmotions });
     } else {
       setShowConfirmationModal(true);
     }
@@ -61,7 +61,7 @@ export default function SelfFrequency({ onContinue }: ClassifcationTaskProps) {
 
   const handleConfirmContinue = () => {
     setShowConfirmationModal(false);
-    onContinue?.(sliderSelections);
+    onContinue?.({ ratings: sliderSelections, order: shuffledEmotions });
   };
 
   const handleCancelContinue = () => {

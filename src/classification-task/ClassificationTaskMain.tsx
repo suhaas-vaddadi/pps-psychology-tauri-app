@@ -129,79 +129,79 @@ function ClassificationTaskMain({
   const emotionTransitions = [
     { initial: "assertive", final: "confident" },
     { initial: "assertive", final: "grouchy" },
-    { initial: "assertive", final: "sad" },
-    { initial: "assertive", final: "assertive" },
-    { initial: "assertive", final: "unrestrained" },
-    { initial: "confident", final: "confident" },
-    { initial: "confident", final: "grouchy" },
-    { initial: "confident", final: "sad" },
-    { initial: "confident", final: "assertive" },
-    { initial: "confident", final: "unrestrained" },
-    { initial: "grouchy", final: "confident" },
-    { initial: "grouchy", final: "grouchy" },
-    { initial: "grouchy", final: "sad" },
-    { initial: "grouchy", final: "assertive" },
-    { initial: "grouchy", final: "unrestrained" },
-    { initial: "sad", final: "confident" },
-    { initial: "sad", final: "grouchy" },
-    { initial: "sad", final: "sad" },
-    { initial: "sad", final: "assertive" },
-    { initial: "sad", final: "unrestrained" },
-    { initial: "unrestrained", final: "confident" },
-    { initial: "unrestrained", final: "grouchy" },
-    { initial: "unrestrained", final: "sad" },
-    { initial: "unrestrained", final: "assertive" },
-    { initial: "unrestrained", final: "unrestrained" },
-    { initial: "bold", final: "nervous" },
-    { initial: "bold", final: "irritable" },
-    { initial: "bold", final: "lively" },
-    { initial: "bold", final: "bold" },
-    { initial: "bold", final: "talkative" },
-    { initial: "irritable", final: "nervous" },
-    { initial: "irritable", final: "irritable" },
-    { initial: "irritable", final: "lively" },
-    { initial: "irritable", final: "bold" },
-    { initial: "irritable", final: "talkative" },
-    { initial: "lively", final: "nervous" },
-    { initial: "lively", final: "irritable" },
-    { initial: "lively", final: "lively" },
-    { initial: "lively", final: "bold" },
-    { initial: "lively", final: "talkative" },
-    { initial: "nervous", final: "nervous" },
-    { initial: "nervous", final: "irritable" },
-    { initial: "nervous", final: "lively" },
-    { initial: "nervous", final: "bold" },
-    { initial: "nervous", final: "talkative" },
-    { initial: "talkative", final: "nervous" },
-    { initial: "talkative", final: "irritable" },
-    { initial: "talkative", final: "lively" },
-    { initial: "talkative", final: "bold" },
-    { initial: "talkative", final: "talkative" },
-    { initial: "contempt", final: "satisfaction" },
-    { initial: "contempt", final: "love" },
-    { initial: "contempt", final: "contempt" },
-    { initial: "contempt", final: "disgust" },
-    { initial: "contempt", final: "embarrassment" },
-    { initial: "disgust", final: "satisfaction" },
-    { initial: "disgust", final: "love" },
-    { initial: "disgust", final: "contempt" },
-    { initial: "disgust", final: "disgust" },
-    { initial: "disgust", final: "embarrassment" },
-    { initial: "embarrassment", final: "satisfaction" },
-    { initial: "embarrassment", final: "love" },
-    { initial: "embarrassment", final: "contempt" },
-    { initial: "embarrassment", final: "disgust" },
-    { initial: "embarrassment", final: "embarrassment" },
-    { initial: "love", final: "satisfaction" },
-    { initial: "love", final: "love" },
-    { initial: "love", final: "contempt" },
-    { initial: "love", final: "disgust" },
-    { initial: "love", final: "embarrassment" },
-    { initial: "satisfaction", final: "satisfaction" },
-    { initial: "satisfaction", final: "love" },
-    { initial: "satisfaction", final: "contempt" },
-    { initial: "satisfaction", final: "disgust" },
-    { initial: "satisfaction", final: "embarrassment" },
+    // { initial: "assertive", final: "sad" },
+    // { initial: "assertive", final: "assertive" },
+    // { initial: "assertive", final: "unrestrained" },
+    // { initial: "confident", final: "confident" },
+    // { initial: "confident", final: "grouchy" },
+    // { initial: "confident", final: "sad" },
+    // { initial: "confident", final: "assertive" },
+    // { initial: "confident", final: "unrestrained" },
+    // { initial: "grouchy", final: "confident" },
+    // { initial: "grouchy", final: "grouchy" },
+    // { initial: "grouchy", final: "sad" },
+    // { initial: "grouchy", final: "assertive" },
+    // { initial: "grouchy", final: "unrestrained" },
+    // { initial: "sad", final: "confident" },
+    // { initial: "sad", final: "grouchy" },
+    // { initial: "sad", final: "sad" },
+    // { initial: "sad", final: "assertive" },
+    // { initial: "sad", final: "unrestrained" },
+    // { initial: "unrestrained", final: "confident" },
+    // { initial: "unrestrained", final: "grouchy" },
+    // { initial: "unrestrained", final: "sad" },
+    // { initial: "unrestrained", final: "assertive" },
+    // { initial: "unrestrained", final: "unrestrained" },
+    // { initial: "bold", final: "nervous" },
+    // { initial: "bold", final: "irritable" },
+    // { initial: "bold", final: "lively" },
+    // { initial: "bold", final: "bold" },
+    // { initial: "bold", final: "talkative" },
+    // { initial: "irritable", final: "nervous" },
+    // { initial: "irritable", final: "irritable" },
+    // { initial: "irritable", final: "lively" },
+    // { initial: "irritable", final: "bold" },
+    // { initial: "irritable", final: "talkative" },
+    // { initial: "lively", final: "nervous" },
+    // { initial: "lively", final: "irritable" },
+    // { initial: "lively", final: "lively" },
+    // { initial: "lively", final: "bold" },
+    // { initial: "lively", final: "talkative" },
+    // { initial: "nervous", final: "nervous" },
+    // { initial: "nervous", final: "irritable" },
+    // { initial: "nervous", final: "lively" },
+    // { initial: "nervous", final: "bold" },
+    // { initial: "nervous", final: "talkative" },
+    // { initial: "talkative", final: "nervous" },
+    // { initial: "talkative", final: "irritable" },
+    // { initial: "talkative", final: "lively" },
+    // { initial: "talkative", final: "bold" },
+    // { initial: "talkative", final: "talkative" },
+    // { initial: "contempt", final: "satisfaction" },
+    // { initial: "contempt", final: "love" },
+    // { initial: "contempt", final: "contempt" },
+    // { initial: "contempt", final: "disgust" },
+    // { initial: "contempt", final: "embarrassment" },
+    // { initial: "disgust", final: "satisfaction" },
+    // { initial: "disgust", final: "love" },
+    // { initial: "disgust", final: "contempt" },
+    // { initial: "disgust", final: "disgust" },
+    // { initial: "disgust", final: "embarrassment" },
+    // { initial: "embarrassment", final: "satisfaction" },
+    // { initial: "embarrassment", final: "love" },
+    // { initial: "embarrassment", final: "contempt" },
+    // { initial: "embarrassment", final: "disgust" },
+    // { initial: "embarrassment", final: "embarrassment" },
+    // { initial: "love", final: "satisfaction" },
+    // { initial: "love", final: "love" },
+    // { initial: "love", final: "contempt" },
+    // { initial: "love", final: "disgust" },
+    // { initial: "love", final: "embarrassment" },
+    // { initial: "satisfaction", final: "satisfaction" },
+    // { initial: "satisfaction", final: "love" },
+    // { initial: "satisfaction", final: "contempt" },
+    // { initial: "satisfaction", final: "disgust" },
+    // { initial: "satisfaction", final: "embarrassment" },
   ];
 
   useEffect(() => {
@@ -315,33 +315,18 @@ function ClassificationTaskMain({
         }
         break;
       case "selfFrequency":
-        const emotions = [
-          "confident",
-          "grouchy",
-          "sad",
-          "assertive",
-          "unrestrained",
-          "nervous",
-          "irritable",
-          "lively",
-          "bold",
-          "talkative",
-          "satisfaction",
-          "love",
-          "contempt",
-          "disgust",
-          "embarrassment",
-        ];
-        emotions.forEach((emotion) => {
-          writeCSVRow(
-            "self_frequency",
-            `How often do you feel ${emotion}?`,
-            "",
-            "",
-            "",
-            stepData?.[emotion] ?? ""
-          );
-        });
+        if (stepData && stepData.order && stepData.ratings) {
+          for (const emotion of stepData.order) {
+            await writeCSVRow(
+              "self_frequency",
+              `How often do you feel ${emotion}?`,
+              "",
+              "",
+              "",
+              stepData.ratings?.[emotion] ?? ""
+            );
+          }
+        }
         if (currentFormIndex < formOrder.length - 1) {
           setCurrentFormIndex(currentFormIndex + 1);
           setCurrentStep(formOrder[currentFormIndex + 1]);
@@ -351,38 +336,18 @@ function ClassificationTaskMain({
         }
         break;
       case "loneliness":
-        const lonelinessQuestions = [
-          'How often do you feel that you are "in tune" with the people around you?',
-          "How often do you feel that you lack companionship?",
-          "How often do you feel that there is no one you can turn to?",
-          "How often do you feel alone?",
-          "How often do you feel part of a group of friends?",
-          "How often do you feel that you have a lot in common with the people around you?",
-          "How often do you feel that you are no longer close to anyone?",
-          "How often do you feel that your interests and ideas are not shared by those around you?",
-          "How often do you feel outgoing and friendly?",
-          "How often do you feel close to people?",
-          "How often do you feel left out?",
-          "How often do you feel that your relationships with others are not meaningful?",
-          "How often do you feel that no one really knows you well?",
-          "How often do you feel isolated from others?",
-          "How often do you feel you can find companionship when you want it?",
-          "How often do you feel that there are people who really understand you?",
-          "How often do you feel shy?",
-          "How often do you feel that people are around you but not with you?",
-          "How often do you feel that there are people you can talk to?",
-          "How often do you feel that there are people you can turn to?",
-        ];
-        lonelinessQuestions.forEach((question, index) => {
-          writeCSVRow(
-            "loneliness",
-            question,
-            "",
-            "",
-            "",
-            stepData?.matrixSelections?.[index] ?? ""
-          );
-        });
+        if (stepData && stepData.order && stepData.matrixSelections) {
+          for (const [index, question] of stepData.order.entries()) {
+            await writeCSVRow(
+              "loneliness",
+              question,
+              "",
+              "",
+              "",
+              stepData.matrixSelections?.[index] ?? ""
+            );
+          }
+        }
         if (currentFormIndex < formOrder.length - 1) {
           setCurrentFormIndex(currentFormIndex + 1);
           setCurrentStep(formOrder[currentFormIndex + 1]);
@@ -518,38 +483,18 @@ function ClassificationTaskMain({
         }
         break;
       case "socialConnectedness":
-        const socialConnectednessQuestions = [
-          "I feel disconnected from the world around me.",
-          "My friends feel like family.",
-          "I don't feel I participate with anyone or any group.",
-          "I feel distant from people.",
-          "Even around people I know, I don't feel that I really belong.",
-          "I find myself actively involved in people's lives.",
-          "I see people as friendly and approachable.",
-          "I am in tune with the world.",
-          "I am able to connect with other people.",
-          "I feel like an outsider.",
-          "I fit well in new situations.",
-          "I catch myself losing a sense of connectedness with society.",
-          "I don't feel related to most people.",
-          "I feel comfortable in the presence of strangers.",
-          "I see myself as a loner.",
-          "I have little sense of togetherness with my peers.",
-          "I feel close to people.",
-          "I am able to relate to my peers.",
-          "Even among my friends, there is no sense of brother/sisterhood.",
-          "I feel understood by the people I know.",
-        ];
-        socialConnectednessQuestions.forEach((question, index) => {
-          writeCSVRow(
-            "social_connectedness",
-            question,
-            "",
-            "",
-            "",
-            stepData?.matrixSelections?.[index] ?? ""
-          );
-        });
+        if (stepData && stepData.order && stepData.matrixSelections) {
+          for (const [index, question] of stepData.order.entries()) {
+            await writeCSVRow(
+              "social_connectedness",
+              question,
+              "",
+              "",
+              "",
+              stepData.matrixSelections?.[index] ?? ""
+            );
+          }
+        }
         if (currentFormIndex < formOrder.length - 1) {
           setCurrentFormIndex(currentFormIndex + 1);
           setCurrentStep(formOrder[currentFormIndex + 1]);
@@ -559,34 +504,18 @@ function ClassificationTaskMain({
         }
         break;
       case "expressivity":
-        const expressivityQuestions = [
-          "My body reacts very strongly to emotional situations.",
-          "I am an emotionally expressive person.",
-          "When I'm happy, my feelings show.",
-          "I experience my emotions very strongly.",
-          "I sometimes cry during sad movies.",
-          "I have strong emotions.",
-          "I am sometimes unable to hide my feelings, even though I would like to.",
-          "No matter how nervous or upset I am, I tend to keep a calm exterior.",
-          "I've learned it is better to suppress my anger than to show it.",
-          "It is difficult for me to hide my fear.",
-          "I laugh out loud when someone tells me a joke that I think is funny.",
-          "People often do not know what I am feeling.",
-          "What I'm feeling is written all over my face.",
-          "There have been times when I have not been able to stop crying even though I tried to stop.",
-          "Whenever I feel positive emotions, people can easily see exactly what I am feeling.",
-          "Whenever I feel negative emotions, people can easily see exactly what I am feeling.",
-        ];
-        expressivityQuestions.forEach((question, index) => {
-          writeCSVRow(
-            "expressivity",
-            question,
-            "",
-            "",
-            "",
-            stepData?.matrixSelections?.[index] ?? ""
-          );
-        });
+        if (stepData && stepData.order && stepData.matrixSelections) {
+          for (const [index, question] of stepData.order.entries()) {
+            await writeCSVRow(
+              "expressivity",
+              question,
+              "",
+              "",
+              "",
+              stepData.matrixSelections?.[index] ?? ""
+            );
+          }
+        }
         if (currentFormIndex < formOrder.length - 1) {
           setCurrentFormIndex(currentFormIndex + 1);
           setCurrentStep(formOrder[currentFormIndex + 1]);

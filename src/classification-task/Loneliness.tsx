@@ -59,12 +59,9 @@ export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
   };
   const handleContinue = () => {
     if (isFormValid()) {
-      const orderedSelections = originalQuestions.map((question) => {
-        const shuffledIndex = shuffledQuestions.indexOf(question);
-        return matrixSelections[shuffledIndex];
-      });
       const data = {
-        matrixSelections: orderedSelections,
+        matrixSelections: matrixSelections,
+        order: shuffledQuestions,
       };
       onContinue?.(data);
     } else {
@@ -74,12 +71,9 @@ export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
 
   const handleConfirmContinue = () => {
     setShowConfirmationModal(false);
-    const orderedSelections = originalQuestions.map((question) => {
-      const shuffledIndex = shuffledQuestions.indexOf(question);
-      return matrixSelections[shuffledIndex];
-    });
     const data = {
-      matrixSelections: orderedSelections,
+      matrixSelections: matrixSelections,
+      order: shuffledQuestions,
     };
     onContinue?.(data);
   };

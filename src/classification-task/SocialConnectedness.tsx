@@ -67,12 +67,9 @@ export default function SocialConnectedness({
 
   const handleContinue = () => {
     if (isFormValid()) {
-      const orderedSelections = originalRows.map((question) => {
-        const shuffledIndex = shuffledRows.indexOf(question);
-        return matrixSelections[shuffledIndex];
-      });
       const data = {
-        matrixSelections: orderedSelections,
+        matrixSelections: matrixSelections,
+        order: shuffledRows,
       };
       onContinue?.(data);
     } else {
@@ -82,12 +79,9 @@ export default function SocialConnectedness({
 
   const handleConfirmContinue = () => {
     setShowConfirmationModal(false);
-    const orderedSelections = originalRows.map((question) => {
-      const shuffledIndex = shuffledRows.indexOf(question);
-      return matrixSelections[shuffledIndex];
-    });
     const data = {
-      matrixSelections: orderedSelections,
+      matrixSelections: matrixSelections,
+      order: shuffledRows,
     };
     onContinue?.(data);
   };
