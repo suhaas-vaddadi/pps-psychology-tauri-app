@@ -12,6 +12,7 @@ import SocialConnectedness from "./SocialConnectedness";
 import Experience from "./Experience";
 import Expressivity from "./Expressivity";
 import StudyFeedback from "./StudyFeedback";
+import Autism from "./Autism";
 
 interface ClassificationTaskMainProps {
   formData: {
@@ -76,7 +77,7 @@ function ClassificationTaskMain({
       ratingPerson,
       response,
       trail_number.current,
-      "1.0.0",
+      "1.0.2",
     ]
       .map(csvEscape)
       .join(",");
@@ -120,6 +121,7 @@ function ClassificationTaskMain({
       blockRandomized[0],
       blockRandomized[1],
       blockRandomized[2],
+      "autism",
       "partnerHistory",
       "demographics",
       "studyFeedback",
@@ -128,7 +130,7 @@ function ClassificationTaskMain({
   }, [csvFilePath, _formData]);
   const emotionTransitions = [
     { initial: "assertive", final: "confident" },
-    { initial: "assertive", final: "grouchy" },
+    // { initial: "assertive", final: "grouchy" },
     // { initial: "assertive", final: "sad" },
     // { initial: "assertive", final: "assertive" },
     // { initial: "assertive", final: "unrestrained" },
@@ -253,8 +255,7 @@ function ClassificationTaskMain({
     if (currentPersonIndex + 1 < shuffledPeople.length) {
       setShowTransition(true);
     } else {
-      // Move to first form after ratings: selfFrequency
-      setCurrentFormIndex(1); // index of selfFrequency in forms array
+      setCurrentFormIndex(1);
       setCurrentStep("selfFrequency");
       console.log("All ratings completed:", allRatings.concat(ratings));
     }
@@ -414,30 +415,39 @@ function ClassificationTaskMain({
         }
         break;
       case "partnerSliders":
-        await writeCSVRow(
-          "partner_sliders",
-          "Is similar to me?",
-          "",
-          "",
-          "",
-          stepData?.sliderSelections?.[0] ?? ""
-        );
-        await writeCSVRow(
-          "partner_sliders",
-          "Is close to me?",
-          "",
-          "",
-          "",
-          stepData?.sliderSelections?.[1] ?? ""
-        );
-        await writeCSVRow(
-          "partner_sliders",
-          "Is familiar to me?",
-          "",
-          "",
-          "",
-          stepData?.sliderSelections?.[2] ?? ""
-        );
+        if (stepData && stepData.order && stepData.sliderSelections) {
+          for (const [index, question] of stepData.order.entries()) {
+            await writeCSVRow(
+              "partner_sliders",
+              question,
+              "",
+              "",
+              "",
+              stepData.sliderSelections?.[index] ?? ""
+            );
+          }
+        }
+        if (currentFormIndex < formOrder.length - 1) {
+          setCurrentFormIndex(currentFormIndex + 1);
+          setCurrentStep(formOrder[currentFormIndex + 1]);
+        } else {
+          setCurrentStep("completed");
+          onComplete?.();
+        }
+        break;
+      case "autism":
+        if (stepData && stepData.order && stepData.matrixSelections) {
+          for (const [index, question] of stepData.order.entries()) {
+            await writeCSVRow(
+              "autism",
+              question,
+              "",
+              "",
+              "",
+              stepData.matrixSelections?.[index] ?? ""
+            );
+          }
+        }
         if (currentFormIndex < formOrder.length - 1) {
           setCurrentFormIndex(currentFormIndex + 1);
           setCurrentStep(formOrder[currentFormIndex + 1]);
@@ -651,6 +661,9 @@ function ClassificationTaskMain({
 
         {currentStep === "demographics" && (
           <Demographics onContinue={(data) => handleStepComplete(data)} />
+        )}
+        {currentStep === "autism" && (
+          <Autism onContinue={(data) => handleStepComplete(data)} />
         )}
 
         {currentStep === "studyFeedback" && (

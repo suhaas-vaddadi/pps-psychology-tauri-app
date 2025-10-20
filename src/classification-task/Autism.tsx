@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MatrixQuestion from "../components/MatrixQuestion";
 import { ClassifcationTaskProps } from "./PartnerHistory";
 import ConfirmationModal from "../components/ConfirmationModal";
-export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
+export default function Autism({ onContinue }: ClassifcationTaskProps) {
   const [matrixSelections, setMatrixSelections] = useState<{
     [key: number]: number;
   }>({});
@@ -11,26 +11,16 @@ export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
   const [shuffledQuestions, setShuffledQuestions] = useState<string[]>([]);
 
   const originalQuestions = [
-    'How often do you feel that you are "in tune" with the people around you?',
-    "How often do you feel that you lack companionship?",
-    "How often do you feel that there is no one you can turn to?",
-    "How often do you feel alone?",
-    "How often do you feel part of a group of friends?",
-    "How often do you feel that you have a lot in common with the people around you?",
-    "How often do you feel that you are no longer close to anyone?",
-    "How often do you feel that your interests and ideas are not shared by those around you?",
-    "How often do you feel outgoing and friendly?",
-    "How often do you feel close to people?",
-    "How often do you feel left out?",
-    "How often do you feel that your relationships with others are not meaningful?",
-    "How often do you feel that no one really knows you well?",
-    "How often do you feel isolated from others?",
-    "How often do you feel you can find companionship when you want it?",
-    "How often do you feel that there are people who really understand you?",
-    "How often do you feel shy?",
-    "How often do you feel that people are around you but not with you?",
-    "How often do you feel that there are people you can talk to?",
-    "How often do you feel that there are people you can turn to?",
+    "I often notice small sounds when others do not",
+    "I usually concentrate more on the whole picture, rather than the small details",
+    "I find it easy to do more than one thing at once",
+    "If there is an interruption, I can switch back to what I was doing very quickly",
+    "I find it easy to 'read between the lines' when someone is talking to me",
+    "I know how to tell if someone listening to me is getting bored",
+    "When I'm reading a story I find it difficult to work out the characters' intentions",
+    "I like to collect information about categories of things (e.g. types of car, types of bird, types of train, types of plant etc)",
+    "I find it easy to work out what someone is thinking or feeling just by looking at their face",
+    "I find it difficult to work out people's intentions",
   ];
 
   useEffect(() => {
@@ -49,7 +39,7 @@ export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
   };
 
   const isFormValid = () => {
-    const totalQuestions = 20;
+    const totalQuestions = 10;
     const answeredQuestions = Object.keys(matrixSelections).length;
     return (
       answeredQuestions === totalQuestions &&
@@ -87,7 +77,12 @@ export default function Loneliness({ onContinue }: ClassifcationTaskProps) {
           <div className="grid grid-cols-1 gap-4 mb-6 max-w-2xl mx-auto"></div>
           <MatrixQuestion
             rows={shuffledQuestions}
-            columns={["Never", "Rarely", "Sometimes", "Always"]}
+            columns={[
+              "Definitely Agree",
+              "Slightly Agree",
+              "Slightly Disagree",
+              "Definitely Disagree",
+            ]}
             onSelectionChange={handleMatrixSelectionChange}
             selections={matrixSelections}
           />

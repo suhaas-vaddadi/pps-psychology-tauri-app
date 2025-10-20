@@ -5,7 +5,7 @@ import ConfirmationModal from "../components/ConfirmationModal";
 
 export default function PartnerSliders({ onContinue }: ClassifcationTaskProps) {
   const [sliderSelections, setSliderSelections] = useState<{
-    [key: string]: number;
+    [key: number]: number;
   }>({});
   const [shuffledRows, setShuffledRows] = useState<string[]>([]);
   const [showConfirmationModal, setShowConfirmationModal] =
@@ -23,10 +23,9 @@ export default function PartnerSliders({ onContinue }: ClassifcationTaskProps) {
   }, []);
 
   const handleSliderSelectionChange = (rowIndex: number, value: number) => {
-    const question = shuffledRows[rowIndex];
     setSliderSelections((prev) => ({
       ...prev,
-      [question]: value,
+      [rowIndex]: value,
     }));
   };
 
@@ -35,11 +34,10 @@ export default function PartnerSliders({ onContinue }: ClassifcationTaskProps) {
 
   const handleContinue = () => {
     if (isFormValid()) {
-      const orderedSelections = originalRows.map(
-        (question) => sliderSelections[question]
-      );
-
-      const data = { sliderSelections: orderedSelections };
+      const data = {
+        sliderSelections: sliderSelections,
+        order: shuffledRows,
+      };
       onContinue?.(data);
     } else {
       setShowConfirmationModal(true);
@@ -48,17 +46,27 @@ export default function PartnerSliders({ onContinue }: ClassifcationTaskProps) {
 
   const handleConfirmContinue = () => {
     setShowConfirmationModal(false);
-    const orderedSelections = originalRows.map(
-      (question) => sliderSelections[question]
-    );
-
-    const data = { sliderSelections: orderedSelections };
+    const data = {
+      sliderSelections: sliderSelections,
+      order: shuffledRows,
+    };
     onContinue?.(data);
   };
 
   const handleCancelContinue = () => {
     setShowConfirmationModal(false);
   };
+
+  const selectionsForMatrixSlider = Object.entries(sliderSelections).reduce(
+    (acc, [rowIndex, value]) => {
+      const question = shuffledRows[parseInt(rowIndex)];
+      if (question) {
+        acc[question] = value;
+      }
+      return acc;
+    },
+    {} as { [key: string]: number }
+  );
 
   return (
     <div className="min-h-full w-full flex flex-col items-center justify-center bg-black">
@@ -70,7 +78,7 @@ export default function PartnerSliders({ onContinue }: ClassifcationTaskProps) {
             leftLabel="Not at all"
             rightLabel="Very much"
             onSelectionChange={handleSliderSelectionChange}
-            selections={sliderSelections}
+            selections={selectionsForMatrixSlider}
           />
         </div>
       </div>
