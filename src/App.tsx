@@ -30,6 +30,9 @@ function App() {
   }>({ dyad: false, classification: false });
   const [taskOrder, setTaskOrder] = useState<number>(0);
 
+    document.oncontextmenu = (event) => {
+        event.preventDefault();
+    };
   const handleFormSubmit = async () => {
     if (
       formData.dyadId &&

@@ -77,7 +77,7 @@ function ClassificationTaskMain({
       ratingPerson,
       response,
       trail_number.current,
-      "1.0.2",
+      "1.0.3",
     ]
       .map(csvEscape)
       .join(",");
